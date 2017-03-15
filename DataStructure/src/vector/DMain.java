@@ -5,14 +5,21 @@ public class DMain {
 		try {
 			DVector dVector = new DVector();
 
-			for (int i = 0; i < 5; i++) {
-				dVector.add(i * 10);
+			for (int i = 0; i < 10; i++) {
+				dVector.add(i, i * 10);
 			}
+			
+			
+			
+//			int size = dVector.getSize();
+//			for (int i = 0; i < size; i++) {
+//				dVector.remove();		
+//			}
+			
+			// data validation
+			System.out.println("size: "+dVector.getSize());
 			for (int i = 0; i < dVector.getSize(); i++) {
-				System.out.println(dVector.get(i));
-			}
-			for (int i = 0; i < (dVector.getSize()+1); i++) {
-				dVector.remove();		
+				System.out.println("index-"+i+": "+dVector.get(i));
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
