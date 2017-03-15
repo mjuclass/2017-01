@@ -1,3 +1,4 @@
+package menu;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -11,12 +12,15 @@ public class EditMenu extends JMenu {
 		this.add(pasteItem);
 		JMenuItem deleteItem = new JMenuItem("Delete");
 		this.add(deleteItem);
+		this.addSeparator();
 		JMenuItem doItem = new JMenuItem("Do");
 		this.add(doItem);
 		JMenuItem undoItem = new JMenuItem("Undo");
 		this.add(undoItem);
+		this.addSeparator();
 		JMenuItem selectAllItem = new JMenuItem("SelectAll");
 		this.add(selectAllItem);
+		this.addSeparator();
 		JMenuItem groupItem = new JMenuItem("Group");
 		this.add(groupItem);
 		JMenuItem ungorupItem = new JMenuItem("UpGroup");
