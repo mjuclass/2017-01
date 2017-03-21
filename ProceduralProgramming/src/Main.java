@@ -5,15 +5,22 @@ public class Main {
 		try {
 			// 명사, 명사, 동사, 부사
 			// Object.Method(Parameter);
-			System.out.println("Hello");
 			int intInput;
+			// pre-condition: initial state
 			intInput = System.in.read();
-			System.out.println(intInput);
+			while(intInput != 0x20) {
+				// task
+				System.out.println(intInput);
+				// 상태를 변화시켜주는 명령
+				intInput = System.in.read();
+			}
 			
-			char charInput;
-			charInput = (char)intInput;
-			System.out.println(charInput);
-			
+			for (intInput = System.in.read();
+					intInput != 0x20;
+					intInput = System.in.read()) {
+				System.out.println(intInput);			
+			}
+		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
