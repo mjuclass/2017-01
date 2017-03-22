@@ -7,7 +7,7 @@ public class DVector {
 	
 	// constructor
 	public DVector() {
-		this.aData = new int[Constant.VECTOR_SIZE];
+		this.aData = new int[DConstant.VECTOR_SIZE];
 		this.size = 0;
 	}
 	
@@ -22,7 +22,7 @@ public class DVector {
 		if ((index >= this.size) || (index < 0)) {			
 			throw new Exception(
 					this.getClass().getSimpleName()
-					+ ":"+Constant.EMSG_ARRAYINDEXOUTOFBOUNDS);
+					+ ":"+DConstant.EMSG_ARRAYINDEXOUTOFBOUNDS);
 		}
 		
 		return this.aData[index];
@@ -31,7 +31,7 @@ public class DVector {
 		if (this.size >= aData.length) {
 			throw new Exception(
 					this.getClass().getSimpleName()
-					+ ":"+Constant.EMSG_ARRAYINDEXOUTOFBOUNDS);
+					+ ":"+DConstant.EMSG_ARRAYINDEXOUTOFBOUNDS);
 		}
 		
 		this.aData[this.size] = data;
@@ -42,7 +42,7 @@ public class DVector {
 				|| (this.size>(this.aData.length-1))) {
 			throw new Exception(
 					this.getClass().getSimpleName()
-					+ ":"+Constant.EMSG_ARRAYINDEXOUTOFBOUNDS);
+					+ ":"+DConstant.EMSG_ARRAYINDEXOUTOFBOUNDS);
 		}
 		// move elements
 		for (int i=this.size-1; i>=index; i--) {
@@ -55,7 +55,7 @@ public class DVector {
 		if (this.size <= 0) {
 			throw new Exception(
 					this.getClass().getSimpleName()
-					+ ":"+Constant.EMSG_ARRAYINDEXOUTOFBOUNDS);
+					+ ":"+DConstant.EMSG_ARRAYINDEXOUTOFBOUNDS);
 		}
 		int returnValue = this.aData[this.size];
 		this.size--;		
@@ -65,7 +65,7 @@ public class DVector {
 		if ((index >= this.size) || (index < 0)) {
 			throw new Exception(
 					this.getClass().getSimpleName()
-					+ ":"+Constant.EMSG_ARRAYINDEXOUTOFBOUNDS);
+					+ ":"+DConstant.EMSG_ARRAYINDEXOUTOFBOUNDS);
 		}
 		int returnValue = this.aData[index];
 		for (int i=index+1; i<this.size; i++) {

@@ -1,7 +1,7 @@
 package vector;
 
-public class DMain {
-	public static void main(String[] args) {		
+public class DTestMain {
+	public void execute() {		
 		try {
 			DVectorGeneric<Float> dVector = new DVectorGeneric<Float>();
 			for (int i = 0; i < 10; i++) {
