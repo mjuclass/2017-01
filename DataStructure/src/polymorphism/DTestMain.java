@@ -16,6 +16,5 @@ public class DTestMain {
 		// Super Class "Object"
 		Object object = new DTestMain();
 		System.out.println(object.getClass().getName());
-
 	}
 }
