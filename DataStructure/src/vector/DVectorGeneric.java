@@ -6,6 +6,7 @@ public class DVectorGeneric<TYPE_NAME> {
 	private TYPE_NAME[] aData;
 	
 	// constructor
+	@SuppressWarnings("unchecked")
 	public DVectorGeneric() {
 		aData = (TYPE_NAME[]) new Object[DConstant.VECTOR_SIZE];
 		this.size = 0;
