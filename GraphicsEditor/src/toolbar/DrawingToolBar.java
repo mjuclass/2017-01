@@ -1,36 +1,38 @@
 package toolbar;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 
+import global.Constant;
+import global.Constant.EShapes;
+
 public class DrawingToolBar extends JToolBar {
 	private static final long serialVersionUID = 1L;
 	
-	public DrawingToolBar() {		
-		JButton button;
-		button = new JButton();
-		button.setIcon(new ImageIcon("resource/rectangle.gif"));
-		button.setPressedIcon(new ImageIcon("resource/rectangleSLT.gif"));
-		this.add(button);
-		button = new JButton();
-		button.setIcon(new ImageIcon("resource/ellipse.gif"));
-		button.setPressedIcon(new ImageIcon("resource/ellipseSLT.gif"));
-		this.add(button);
-		button = new JButton();
-		button.setIcon(new ImageIcon("resource/line.gif"));
-		button.setPressedIcon(new ImageIcon("resource/lineSLT.gif"));
-		this.add(button);
-		button = new JButton();
-		button.setIcon(new ImageIcon("resource/polygon.gif"));
-		button.setPressedIcon(new ImageIcon("resource/polygonSLT.gif"));
-		this.add(button);
-		button = new JButton();
-		button.setIcon(new ImageIcon("resource/heart.gif"));
-		button.setPressedIcon(new ImageIcon("resource/heartSLT.gif"));
-		this.add(button);
-		button = new JButton("TEXT");
-		this.add(button);
+	public DrawingToolBar() {
+		
+		ActionHandler ationHandler = new ActionHandler();
+		
+		for (int i=0; i<EShapes.values().length; i++) {
+			JButton button = new JButton();
+			button.setIcon(new ImageIcon(Constant.buttonIconName[i]));
+			button.setPressedIcon(new ImageIcon(Constant.buttonIconSLTName[i]));
+			// add event handler
+			button.setActionCommand(EShapes.values()[i].toString());
+			button.addActionListener(ationHandler);
+			
+			this.add(button);
+		}
+	}
+	private class ActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println(event.getActionCommand());			
+		}		
 	}
 
 }
