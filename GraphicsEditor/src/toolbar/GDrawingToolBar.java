@@ -18,8 +18,7 @@ public class GDrawingToolBar extends JToolBar {
 		this.drawingPanel = drawingPanel;
 	}
 	
-	public GDrawingToolBar() {
-		
+	public GDrawingToolBar() {		
 		ActionHandler ationHandler = new ActionHandler();
 		// for (i=0; i<EShapes.values.length(); i++) 
 		//     shape = EShapes.values[i]
@@ -40,8 +39,7 @@ public class GDrawingToolBar extends JToolBar {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			String actionCommnand = actionEvent.getActionCommand();
-			drawingPanel.setCurrentTool(EShapes.valueOf(actionCommnand));
-			System.out.println(actionCommnand);			
+			drawingPanel.setCurrentTool(EShapes.valueOf(actionCommnand).getShape());
 		}		
 	}
 
