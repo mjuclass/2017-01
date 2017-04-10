@@ -26,9 +26,9 @@ public class Calculator {
 		int operandCode = 0;
 		int mod;
 		while (operand != 0) {
-			mod = operand % 10;
+			mod = (operand % 10);
 			operand = operand / 10;
-			mod = mod + '0';
+			mod = (mod + '0');
 			System.out.println(mod);
 		}		
 		return operandCode;		
