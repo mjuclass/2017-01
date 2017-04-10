@@ -4,8 +4,7 @@ public class DLine extends DShape {
 
 	@Override
 	public void draw() {
-		// TODO Auto-generated method stub
-
+		System.out.println(this.getClass().getName());
 	}
 
 }

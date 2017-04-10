@@ -1,5 +1,7 @@
 package polymorphism;
 
-abstract public class DShape {	
-	abstract public void draw();
+public class DShape {	
+	public void draw() {
+		System.out.println(this.getClass().getName());
+	}
 }
