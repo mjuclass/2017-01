@@ -1,7 +1,7 @@
 package stack;
 
 public class DStack<ELEMENT_TYPE> {
-	public final static int MAXSIZE = 2;
+	public final static int MAXSIZE = 100;
 	
 	private int top;
 	private ELEMENT_TYPE elements[];
@@ -24,7 +24,7 @@ public class DStack<ELEMENT_TYPE> {
 			ELEMENT_TYPE element = this.elements[this.top];
 			return element;
 		} else {
-			throw new Exception("Stack Empty");			
+			return null;			
 		}
 	}
 

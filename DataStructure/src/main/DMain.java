@@ -1,6 +1,6 @@
 package main;
 
-import circularQueue.DTestMain;
+import tree.DTestMain;
 
 public class DMain {
 	public static void main(String[] args) {
