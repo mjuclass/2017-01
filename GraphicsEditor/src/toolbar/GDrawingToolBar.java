@@ -3,8 +3,9 @@ package toolbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javax.swing.JRadioButton;
 import javax.swing.JToolBar;
 
 import global.GConstant.EShapes;
@@ -22,11 +23,13 @@ public class GDrawingToolBar extends JToolBar {
 		ActionHandler ationHandler = new ActionHandler();
 		// for (i=0; i<EShapes.values.length(); i++) 
 		//     shape = EShapes.values[i]
+		ButtonGroup buttonGroup = new ButtonGroup();
 		for (EShapes eShape: EShapes.values()) {
-			JButton button = new JButton();
+			JRadioButton button = new JRadioButton();
+			buttonGroup.add(button);
 			// set image icon
 			button.setIcon(new ImageIcon(eShape.getIconName()));
-			button.setPressedIcon(new ImageIcon(eShape.getIconSLTName()));
+			button.setSelectedIcon(new ImageIcon(eShape.getIconSLTName()));
 			// add event handler
 			button.setActionCommand(eShape.toString());
 			button.addActionListener(ationHandler);
@@ -34,6 +37,11 @@ public class GDrawingToolBar extends JToolBar {
 			this.add(button);
 		}
 	}
+	public void initialize() {
+		JRadioButton button = (JRadioButton) this.getComponent(EShapes.eEllipse.ordinal());
+		button.doClick();
+	}
+	
 	// nested class
 	private class ActionHandler implements ActionListener {
 		@Override

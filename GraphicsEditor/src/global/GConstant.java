@@ -1,6 +1,5 @@
 package global;
 
-import toolbar.GEllipse;
 import toolbar.GRectangle;
 import toolbar.GShape;
 
@@ -9,7 +8,7 @@ public class GConstant {
 	public static String PATH = "resource";
 	public static enum EShapes {
 		eRectangle("rectangle.gif","rectangleSLT.gif", new GRectangle()),
-		eEllipse("ellipse.gif","ellipseSLT.gif", new GEllipse()),
+		eEllipse("ellipse.gif","ellipseSLT.gif", new GRectangle()),
 		eLine("line.gif","lineSLT.gif", new GRectangle()),
 		ePolygon("polygon.gif","polygonSLT.gif", new GRectangle()),
 		ePolygon1("polygon.gif","polygonSLT.gif", new GRectangle()),

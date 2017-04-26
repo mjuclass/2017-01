@@ -14,5 +14,8 @@ public class GMenuBar extends JMenuBar {
 		JMenu colorMenu = new GColorMenu();
 		this.add(colorMenu);
 	}
+	public void initialize() {
+		
+	}
 
 }

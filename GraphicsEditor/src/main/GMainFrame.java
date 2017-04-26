@@ -10,9 +10,11 @@ import toolbar.GDrawingToolBar;
 
 public class GMainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	// components
 	
-	// constructor
+	private GMenuBar menuBar;
+	private GDrawingToolBar drawingToolBar;
+	private GDrawingPanel drawingPanel;
+	
 	public GMainFrame(String title) {
 		// invoke super's constructor
 		super(title);
@@ -25,16 +27,21 @@ public class GMainFrame extends JFrame {
 		this.setLayout(layoutManager);
 		
 		// initialize components - Aggregation Hierarchy
-		GMenuBar menuBar = new GMenuBar();
+		this.menuBar = new GMenuBar();
 		this.setJMenuBar(menuBar);
 		
-		GDrawingToolBar drawingToolBar = new GDrawingToolBar();
+		this.drawingToolBar = new GDrawingToolBar();
 		this.add(drawingToolBar, BorderLayout.NORTH);
 		
-		GDrawingPanel drawingPanel = new GDrawingPanel();
+		this.drawingPanel = new GDrawingPanel();
 		this.add(drawingPanel, BorderLayout.CENTER);
-		
+	
 		// Association
 		drawingToolBar.setDrawinPanel(drawingPanel);
+	}
+	public void initialize() {
+		this.menuBar.initialize();
+		this.drawingToolBar.initialize();
+		this.drawingPanel.initialize();
 	}
 }

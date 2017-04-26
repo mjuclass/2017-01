@@ -1,12 +1,12 @@
 package main;
-import javax.swing.JFrame;
 
 public class GMain {
 
 	public static void main(String[] args) {
 		// memory allocation
 		// constructor invocation
-		JFrame mainFrame = new GMainFrame("GraphicsEditor");
+		GMainFrame mainFrame = new GMainFrame("GraphicsEditor");
+		mainFrame.initialize();
 		// draw mainFrame
 		mainFrame.setVisible(true);
 	}
