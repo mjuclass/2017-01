@@ -1,13 +1,14 @@
-package vector;
+package genericVector;
 
-public class DVector {
+public class DVector<TYPE> {
 	// internal structure
 	private int size;
-	private int aData[];
+	private TYPE aData[];
 	
 	// constructor
+	@SuppressWarnings("unchecked")
 	public DVector() {
-		this.aData = new int[DConstant.VECTOR_SIZE];
+		this.aData = (TYPE[]) new Object[DConstant.VECTOR_SIZE];
 		this.size = 0;
 	}
 	
@@ -17,7 +18,7 @@ public class DVector {
 	}
 	
 	// Create, Read, Update, Delete (CRUD)
-	public int get(int index) throws Exception {
+	public TYPE get(int index) throws Exception {
 		// precondition
 		if ((index >= this.size) || (index < 0)) {			
 			throw new Exception(
@@ -27,7 +28,7 @@ public class DVector {
 		
 		return this.aData[index];
 	}
-	public void add(int data) throws Exception {		
+	public void add(TYPE data) throws Exception {		
 		if (this.size >= aData.length) {
 			throw new Exception(
 					this.getClass().getSimpleName()
@@ -37,7 +38,7 @@ public class DVector {
 		this.aData[this.size] = data;
 		this.size++;
 	}
-	public void add(int index, int data) throws Exception {
+	public void add(int index, TYPE data) throws Exception {
 		if (((index > this.size) || (index < 0)) 
 				|| (this.size>(this.aData.length-1))) {
 			throw new Exception(
@@ -51,23 +52,23 @@ public class DVector {
 		this.aData[index] = data;
 		this.size++;
 	}
-	public int remove() throws Exception {
+	public TYPE remove() throws Exception {
 		if (this.size <= 0) {
 			throw new Exception(
 					this.getClass().getSimpleName()
 					+ ":"+DConstant.EMSG_ARRAYINDEXOUTOFBOUNDS);
 		}
-		int returnValue = this.aData[this.size];
+		TYPE returnValue = this.aData[this.size];
 		this.size--;		
 		return returnValue;	
 	}
-	public int remove(int index) throws Exception {
+	public TYPE remove(int index) throws Exception {
 		if ((index >= this.size) || (index < 0)) {
 			throw new Exception(
 					this.getClass().getSimpleName()
 					+ ":"+DConstant.EMSG_ARRAYINDEXOUTOFBOUNDS);
 		}
-		int returnValue = this.aData[index];
+		TYPE returnValue = this.aData[index];
 		for (int i=index+1; i<this.size; i++) {
 			this.aData[i-1] = this.aData[i];			
 		}
