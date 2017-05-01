@@ -45,21 +45,19 @@ public class GDrawingPanel extends JPanel {
 			shape.draw(g2D);
 		}
 	}	
-	private void draw() {
-		Graphics2D g2d = (Graphics2D) this.getGraphics();
-		g2d.setXORMode(getBackground());
-		this.currentShape.draw(g2d);
-	}	
 	private void initDrawing(int x, int y) {
 		this.currentShape = this.currentTool.clone();
 		this.currentShape.setLocation(x, y);
 		this.currentShape.setSize(0, 0);
-		this.draw();
+
+		Graphics2D g2d = (Graphics2D) this.getGraphics();
+		this.currentShape.draw(g2d);
 	}
 	private void keepDrawing(int x, int y) {
-		this.draw();
+		Graphics2D g2d = (Graphics2D) this.getGraphics();
+		this.currentShape.draw(g2d);
 		this.currentShape.setSize(x, y);
-		this.draw();
+		this.currentShape.draw(g2d);
 	}
 	private void finalizeDrawing(int x, int y) {
 		this.drawingShapes.add(this.currentShape);
@@ -69,9 +67,10 @@ public class GDrawingPanel extends JPanel {
 		this.currentShape.initMoving(x, y);
 	}
 	private void keepMoving(int x, int y) {
-		this.draw();
+		Graphics2D g2d = (Graphics2D) this.getGraphics();
+		this.currentShape.draw(g2d);
 		this.currentShape.keepMoving(x, y);
-		this.draw();
+		this.currentShape.draw(g2d);
 	}
 	private void finalizeMoving(int x, int y) {
 	}

@@ -9,19 +9,17 @@ public class GRectangle extends GShape {
 	public GRectangle() {
 		this.shape = new Rectangle(0, 0, 0, 0);
 	}
-	public void setLocation(int x, int y) {	
-		this.shape.setFrame(x, y, 
-				this.shape.getWidth(), this.shape.getHeight()); 
+	public void setLocation(int x, int y) {
+		this.shape.setLocation(x, y);
 	}
 	public void setSize(int x, int y) {	
-		this.shape.setFrame(this.shape.getX(), this.shape.getY(), 
-				x-this.shape.getX(), y-this.shape.getY()); 
+		this.shape.setSize(x-this.shape.x, y-this.shape.y); 
 	}
 	public void draw(Graphics2D g2D) {
 		g2D.setXORMode(g2D.getBackground());
 		g2D.draw(this.shape);
 		if (this.selected)
-			this.anchors.draw(g2D, x, y, w, h);
+			this.anchors.draw(g2D, this.shape.getBounds());
 	}
 	@Override
 	public boolean isOn(int x, int y) {
