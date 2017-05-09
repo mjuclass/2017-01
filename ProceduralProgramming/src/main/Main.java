@@ -5,17 +5,19 @@ import calculator.Calculator;
 public class Main {
 	public static void main(String[] args) {
 		// create object
-//		Calculator calculator = new Calculator();
-//		calculator.add();
+		Calculator calculator;
+		calculator = new Calculator();
 		
-		int x[];
-		x = new int[10];
+		calculator.add();
 		
-		for (int i=0; i<10; i++) {
-			x[i] = i;
-		}
-		for (int i=0; i<10; i++) {
-			System.out.println(x[i]);
-		}
+//		int x[];
+//		x = new int[10];
+//		
+//		for (int i=0; i<10; i++) {
+//			x[i] = i;
+//		}
+//		for (int i=0; i<10; i++) {
+//			System.out.println(x[i]);
+//		}
 	}
 }
