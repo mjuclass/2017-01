@@ -40,6 +40,7 @@ public class GDrawingPanel extends JPanel {
 	public void initialize() {		
 	}
 	public void paint(Graphics g) {
+		super.paint(g);		
 		Graphics2D g2D = (Graphics2D) g;
 		for (GShape shape: this.drawingShapes) {
 			shape.draw(g2D);
@@ -60,7 +61,16 @@ public class GDrawingPanel extends JPanel {
 		this.currentShape.draw(g2d);
 	}
 	private void finalizeDrawing(int x, int y) {
+		this.setSelected();
+		this.repaint();
 		this.drawingShapes.add(this.currentShape);
+		
+	}
+	private void setSelected() {
+		for (GShape shape: this.drawingShapes) {
+			shape.setSelected(false);
+		}
+		this.currentShape.setSelected(true);
 		
 	}
 	private void initMoving(int x, int y) {
