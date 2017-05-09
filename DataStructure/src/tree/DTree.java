@@ -1,7 +1,7 @@
 package tree;
 
 public class DTree {
-	private class Node {
+	public class Node {
 		private Node left;
 		private char token;
 		private Node right;
@@ -17,7 +17,7 @@ public class DTree {
 		public void setToken(char token) {this.token = token;}
 		public Node getRight() {return right;}
 		public void setRight(Node right) {this.right = right;}
-	}
+	};
 	
 	private Node root;
 	private String expression = "+-+abc*df";

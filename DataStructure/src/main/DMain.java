@@ -1,6 +1,6 @@
 package main;
 
-import tree.DTestMain;
+import binarySearchTreePreview.DTestMain;
 
 public class DMain {
 	public static void main(String[] args) {
