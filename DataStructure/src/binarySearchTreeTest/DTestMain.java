@@ -1,4 +1,4 @@
-package binarySearchTreePreview;
+package binarySearchTreeTest;
 
 public class DTestMain {
 	public void execute() {

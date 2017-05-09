@@ -1,4 +1,4 @@
-package treePretest;
+package treeTest;
 
 public class DNode {
 	private String value;

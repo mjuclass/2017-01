@@ -1,4 +1,4 @@
-package treePretest;
+package treeTest;
 
 import java.io.File;
 import java.util.Scanner;

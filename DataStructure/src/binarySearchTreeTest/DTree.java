@@ -1,4 +1,4 @@
-package binarySearchTreePreview;
+package binarySearchTreeTest;
 
 import java.io.IOException;
 
