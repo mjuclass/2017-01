@@ -52,7 +52,7 @@ public class GAnchors {
 			
 		}
 		for (Ellipse2D anchor: this.anchors) {
-			g2D.setColor(Color.WHITE);
+			g2D.setColor(fillColor);
 			g2D.fill(anchor);
 			g2D.setColor(lineColor);
 			g2D.draw(anchor);
