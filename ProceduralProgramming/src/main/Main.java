@@ -1,12 +1,13 @@
 package main;
 
 import calculator.Calculator;
+import calculator.CalculatorTest;
 
 public class Main {
 	public static void main(String[] args) {
 		// create object
-		Calculator calculator;
-		calculator = new Calculator();
+		CalculatorTest calculator;
+		calculator = new CalculatorTest();
 		
 		calculator.add();
 		
