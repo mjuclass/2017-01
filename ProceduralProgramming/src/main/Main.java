@@ -1,15 +1,13 @@
 package main;
 
 import calculator.Calculator;
-import calculator.CalculatorTest;
 
 public class Main {
 	public static void main(String[] args) {
 		// create object
-		CalculatorTest calculator;
-		calculator = new CalculatorTest();
-		
-		calculator.add();
+		Calculator calculator;
+		calculator = new Calculator();		
+		calculator.run();
 		
 //		int x[];
 //		x = new int[10];
