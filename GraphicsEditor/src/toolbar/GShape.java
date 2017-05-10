@@ -21,6 +21,8 @@ public abstract class GShape {
 	public abstract void setLocation(int x, int y);
 	public abstract void setSize(int x, int y);	
 	public abstract void draw(Graphics2D g2D);
+	public abstract void drawAnchor(Graphics2D g2D);
+	
 	public GShape clone() {
 		try {
 			return this.getClass().newInstance();

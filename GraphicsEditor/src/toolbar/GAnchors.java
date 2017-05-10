@@ -22,8 +22,6 @@ public class GAnchors {
 	}
 	public void draw(Graphics2D g2D, Rectangle r) {
 		// ÁÂÇ¥ °è»ê
-		Color lineColor = g2D.getColor();
-		Color fillColor = g2D.getBackground();
 		for (EAnchors eAnchor: EAnchors.values()) {
 			int x = 0;
 			int y = 0;
@@ -44,8 +42,11 @@ public class GAnchors {
 			this.anchors.get(eAnchor.ordinal()).setFrame(x, y, WIDTH, HEIGHT);
 			
 		}
+		Color lineColor = g2D.getColor();
+		Color fillColor = g2D.getBackground();
 		for (Ellipse2D anchor: this.anchors) {
-			g2D.setColor(Color.WHITE);
+			g2D.setPaintMode();
+			g2D.setColor(fillColor);
 			g2D.fill(anchor);
 			g2D.setColor(lineColor);
 			g2D.draw(anchor);

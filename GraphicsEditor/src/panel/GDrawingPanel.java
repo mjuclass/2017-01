@@ -44,9 +44,11 @@ public class GDrawingPanel extends JPanel {
 		Graphics2D g2D = (Graphics2D) g;
 		for (GShape shape: this.drawingShapes) {
 			shape.draw(g2D);
+			shape.drawAnchor(g2D);
 		}
 	}	
 	private void initDrawing(int x, int y) {
+		clearSelection();
 		this.currentShape = this.currentTool.clone();
 		this.currentShape.setLocation(x, y);
 		this.currentShape.setSize(0, 0);
@@ -61,19 +63,22 @@ public class GDrawingPanel extends JPanel {
 		this.currentShape.draw(g2d);
 	}
 	private void finalizeDrawing(int x, int y) {
-		this.setSelected();
-		this.repaint();
 		this.drawingShapes.add(this.currentShape);
-		
+		this.setSelection();		
 	}
-	private void setSelected() {
+	private void setSelection() {
+		this.currentShape.setSelected(true);
+		Graphics2D g2d = (Graphics2D) this.getGraphics();
+		this.currentShape.drawAnchor(g2d);		
+	}
+	private void clearSelection() {
 		for (GShape shape: this.drawingShapes) {
 			shape.setSelected(false);
 		}
-		this.currentShape.setSelected(true);
-		
+		this.repaint();
 	}
 	private void initMoving(int x, int y) {
+		clearSelection();
 		this.currentShape.initMoving(x, y);
 	}
 	private void keepMoving(int x, int y) {
@@ -83,6 +88,7 @@ public class GDrawingPanel extends JPanel {
 		this.currentShape.draw(g2d);
 	}
 	private void finalizeMoving(int x, int y) {
+		this.setSelection();		
 	}
 	
 	private GShape onShape(int x, int y) {
@@ -93,7 +99,23 @@ public class GDrawingPanel extends JPanel {
 		}
 		return null;
 	}
-	
+	private void setCursor(int x, int y) {
+		currentShape = onShape(x, x);
+		if (currentShape == null) {
+			setCursor(new Cursor(Cursor.DEFAULT_CURSOR));				
+		} else {
+			EAnchor eAnchoor = this.currentShape.getAnchor();
+			switch (eAnchor) {
+			case NN:
+				setCursor(new Cursor(Cursor.MOVE_CURSOR));				
+				break;
+			case NW:
+				break
+			default:
+				break;
+			}
+		}
+	}
 	private class MouseHandler 
 		implements MouseInputListener, MouseMotionListener {
 		@Override
@@ -130,12 +152,7 @@ public class GDrawingPanel extends JPanel {
 		}		
 		@Override
 		public void mouseMoved(MouseEvent event) {
-			currentShape = onShape(event.getX(), event.getY());
-			if (currentShape == null) {
-				setCursor(new Cursor(Cursor.DEFAULT_CURSOR));				
-			} else {
-				setCursor(new Cursor(Cursor.MOVE_CURSOR));				
-			}
+			setCursor(event.getX(), event.getY());
 		}		
 		@Override
 		public void mouseEntered(MouseEvent event) {
